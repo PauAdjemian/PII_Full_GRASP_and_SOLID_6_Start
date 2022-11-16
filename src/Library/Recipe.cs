@@ -62,5 +62,23 @@ namespace Full_GRASP_And_SOLID
 
             return result;
         }
+        public bool Cooked { get; private set; } = false;
+
+        public void Cook()
+        {
+            if (this.Cooked) throw new Exception("Está cocido");
+            this.Cooked = true;
+
+        }
+        int GetCookTime()
+        {
+            int TimeAllSteps = 0;
+
+            foreach (Step step in steps)
+            {
+                TimeAllSteps = TimeAllSteps + step.Time;
+            }
+            return TimeAllSteps;
+    }
     }
 }
